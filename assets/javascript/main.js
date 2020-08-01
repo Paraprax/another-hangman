@@ -1,6 +1,4 @@
 /*
-1. Generate a secret word
-    - make an array of prewritten secret words and have a function pick one each round
 
 2. Have the user guess letters
 
@@ -17,6 +15,7 @@
 // initial vars:
 const passwordArray = ['modem', 'matrix', 'wireframe', 'bandwidth', 'giraffe', 'octopus', 'martini', 'hexagon', 'xylophone', 'delta', 'ultramarine', 'zeitgeist', 'rook', 'xenon', 'xerox', 'megabyte', 'enterprise', 'nautilus', 'oppenheimer', 'caffeine', 'adrenaline', 'firewall', 'zeppelin', 'phreak', 'touchtone', 'jupiter', 'quarrel', 'vespertine']
 let password = "";
+let wordsFound = 0;
 
 const newRound = () => {
     passwordPicker();
@@ -27,5 +26,12 @@ const passwordPicker = () => {
     password = passwordArray[Math.floor(Math.random() * 28)];
 }
 
+// function to keep updating the html to match the game data:
+const screenUpdater = () => {
+    document.getElementById('overridden').innerHTML = wordsFound;
+}
+
 //newRound is first called on page load:
 newRound();
+
+
