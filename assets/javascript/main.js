@@ -14,7 +14,18 @@
 
 */
 
-const wordArray = ['modem', 'matrix', 'wireframe', 'bandwidth', 'giraffe', 'octopus', 'martini', 'hexagon', 'xylophone', 'delta', 'ultramarine', 'zeitgeist', 'rook', 'xenon', 'xerox', 'megabyte', 'enterprise', 'elemental', 'oppenheimer', 'caffeine', 'adrenaline', 'firewall', 'zeppelin', 'phreak', 'touchtone', 'jupiter', 'quarrel', 'vespertine']
+// initial vars:
+const passwordArray = ['modem', 'matrix', 'wireframe', 'bandwidth', 'giraffe', 'octopus', 'martini', 'hexagon', 'xylophone', 'delta', 'ultramarine', 'zeitgeist', 'rook', 'xenon', 'xerox', 'megabyte', 'enterprise', 'nautilus', 'oppenheimer', 'caffeine', 'adrenaline', 'firewall', 'zeppelin', 'phreak', 'touchtone', 'jupiter', 'quarrel', 'vespertine']
+let password = "";
 
+const newRound = () => {
+    passwordPicker();
+}
 
-console.log(wordArray.length);
+// function to choose one password from the array per round:
+const passwordPicker = () => {
+    password = passwordArray[Math.floor(Math.random() * 28)];
+}
+
+//newRound is first called on page load:
+newRound();
