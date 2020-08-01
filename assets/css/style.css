@@ -1,0 +1,7 @@
+body {
+    background-image: url('../images/green-crt-dark.jpg');
+    background-size: 1920px 780px;
+    background-color: rgb(2, 7, 2);
+    color: chartreuse;
+    font-family: 'Courier New', Courier, monospace;
+}
