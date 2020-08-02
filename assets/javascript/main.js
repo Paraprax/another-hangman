@@ -1,7 +1,5 @@
 /*
 
-2. Have the user guess letters
-
 3. Have the guessed letters checked against the letters in the secret word
     - if they're in there, fill them in the blank boxes
     - if they're not, add them to the wrong letters array
@@ -18,7 +16,6 @@ const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 let password = "";
 let blanks = [];
 let userInput = "";
-let verifiedGuess = "";
 let wordsFound = 0;
 
 // main game logic:
@@ -29,13 +26,21 @@ const newRound = () => {
     //listen for key hits from the user:
     document.onkeyup = (event) => {
 
+        //convert input to uppercase && save as a variable to be verified:
         userInput = (event.key).toUpperCase();
 
         //only run if they pressed an actual letter:
         if (alphabet.indexOf(userInput) != (-1)) {
+
+            console.log(password);
+            console.log(userInput);
             
-            userGuess = userInput;
-            console.log(`index:` + alphabet.indexOf(userInput));
+            //check if the letter is in the password:
+            if (password.indexOf(userInput) != (-1)) {
+                console.log('letter found!');
+            } else {
+                console.log('letter not found!');
+            }
         }
     }
 }
@@ -43,6 +48,8 @@ const newRound = () => {
 // function to choose one password from the array per round:
 const passwordPicker = () => {
     password = passwordArray[Math.floor(Math.random() * 32)];
+    //convert to uppercase(so we don't have to remember to keep doing so manually for any future passwords added to the array):
+    password = password.toUpperCase();
 }
 
 // function to keep updating the html to match the game data:
