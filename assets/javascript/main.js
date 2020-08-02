@@ -1,7 +1,7 @@
 /*
 
 3. Have the guessed letters checked against the letters in the secret word
-    - if they're in there, fill them in the blank boxes
+    - if they're in there, fill them in the blank boxes P
     - if they're not, add them to the wrong letters array
 
 4. Trigger a win event if the user guesses all the letters
@@ -16,6 +16,7 @@ const passwordArray = ['matrix', 'hexagon', 'delta', 'krypton', 'phreak', 'jupit
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 let password = "";
 let blanks = [];
+let guessedLetters = [];
 let userInput = "";
 let wordsFound = 0;
 
@@ -40,10 +41,12 @@ const newRound = () => {
             if (password.indexOf(userInput) != (-1)) {
                 //replace the blank character at the appropriate index with the user input:
                 blanks[password.indexOf(userInput)] = userInput;
-                //rewrite the new partially-blank string to the screen:
-                document.getElementById('password-blanks').innerHTML = blanks;
+                screenUpdater();
+            //check if wrong letter has already been guessed:
             } else {
                 console.log('letter not found!');
+                guessedLetters.push(userInput);
+                screenUpdater();
             }
         }
     }
@@ -58,13 +61,18 @@ const passwordPicker = () => {
 
 // function to keep updating the html to match the game data:
 const screenUpdater = () => {
+    //update the total passwords found(ie. rounds won):
     document.getElementById('overridden').innerHTML = wordsFound;
+    //reprint the new partially-blank string:
+    document.getElementById('password-blanks').innerHTML = blanks;
+    //reprint the array of wrong answers:
+    document.getElementById('guessed-letters').innerHTML = guessedLetters;
 }
 
 //
 const passwordBlanks = (word) => {
     for (var i = 0; i < word.length; i++) {
-        blanks.push(" _ ");
+        blanks.push('_');
     }
     document.getElementById('password-blanks').innerHTML = blanks;
 }
