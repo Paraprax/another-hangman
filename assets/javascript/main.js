@@ -33,24 +33,18 @@ const newRound = () => {
 
         //only run if they pressed an actual letter:
         if (alphabet.indexOf(userInput) != (-1)) {
-
-            console.log(password);
-            console.log(userInput);
-            
             //check if the letter is in the password:
             if (password.indexOf(userInput) != (-1)) {
                 //replace the blank character at the appropriate index with the user input:
                 blanks[password.indexOf(userInput)] = userInput;
                 screenUpdater();
             } else {
-                console.log('letter not found!');
                 guessedLetters.push(userInput);
                 screenUpdater();
             }
-
             //check if whole password has been uncovered:
             if (blanks.indexOf('_') == -1) {
-                alert('ACCESS GRANTED');
+                setTimeout(function() {alert('Access Granted')}, 100);
             }
         }
     }
