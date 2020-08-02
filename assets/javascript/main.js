@@ -42,11 +42,15 @@ const newRound = () => {
                 //replace the blank character at the appropriate index with the user input:
                 blanks[password.indexOf(userInput)] = userInput;
                 screenUpdater();
-            //check if wrong letter has already been guessed:
             } else {
                 console.log('letter not found!');
                 guessedLetters.push(userInput);
                 screenUpdater();
+            }
+
+            //check if whole password has been uncovered:
+            if (blanks.indexOf('_') == -1) {
+                alert('ACCESS GRANTED');
             }
         }
     }
