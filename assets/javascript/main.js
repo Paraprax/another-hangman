@@ -11,7 +11,8 @@
 */
 
 // initial vars:
-const passwordArray = ['modem', 'matrix', 'wireframe', 'bandwidth', 'giraffe', 'octopus', 'martini', 'hexagon', 'xylophone', 'delta', 'ultramarine', 'zeitgeist', 'rook', 'krypton', 'xerox', 'megabyte', 'enterprise', 'nautilus', 'oppenheimer', 'caffeine', 'adrenaline', 'firewall', 'zeppelin', 'phreak', 'touchtone', 'jupiter', 'quartet', 'vespertine', 'zeroes', 'flux', 'dialup', 'quaver'];
+// const passwordArray = ['modem', 'matrix', 'wireframe', 'bandwidth', 'giraffe', 'octopus', 'martini', 'hexagon', 'xylophone', 'delta', 'ultramarine', 'zeitgeist', 'rook', 'krypton', 'xerox', 'megabyte', 'enterprise', 'nautilus', 'oppenheimer', 'caffeine', 'adrenaline', 'firewall', 'zeppelin', 'phreak', 'touchtone', 'jupiter', 'quartet', 'vespertine', 'zeroes', 'flux', 'dialup', 'quaver'];
+const passwordArray = ['matrix', 'hexagon', 'delta', 'krypton', 'phreak', 'jupiter', 'flux', 'dialup', 'quaver'];
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 let password = "";
 let blanks = [];
@@ -37,7 +38,7 @@ const newRound = () => {
             
             //check if the letter is in the password:
             if (password.indexOf(userInput) != (-1)) {
-                console.log('letter found!');
+                console.log(`letter found at ${password.indexOf(userInput)}!`);
             } else {
                 console.log('letter not found!');
             }
@@ -47,7 +48,7 @@ const newRound = () => {
 
 // function to choose one password from the array per round:
 const passwordPicker = () => {
-    password = passwordArray[Math.floor(Math.random() * 32)];
+    password = passwordArray[Math.floor(Math.random() * 9)];
     //convert to uppercase(so we don't have to remember to keep doing so manually for any future passwords added to the array):
     password = password.toUpperCase();
 }
