@@ -1,7 +1,5 @@
 /*
 
-1.5 Generate a line of underscores equivalent to the number of letters in the password
-
 2. Have the user guess letters
 
 3. Have the guessed letters checked against the letters in the secret word
@@ -16,13 +14,30 @@
 
 // initial vars:
 const passwordArray = ['modem', 'matrix', 'wireframe', 'bandwidth', 'giraffe', 'octopus', 'martini', 'hexagon', 'xylophone', 'delta', 'ultramarine', 'zeitgeist', 'rook', 'krypton', 'xerox', 'megabyte', 'enterprise', 'nautilus', 'oppenheimer', 'caffeine', 'adrenaline', 'firewall', 'zeppelin', 'phreak', 'touchtone', 'jupiter', 'quartet', 'vespertine', 'zeroes', 'flux', 'dialup', 'quaver'];
+const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 let password = "";
 let blanks = [];
+let userInput = "";
+let verifiedGuess = "";
 let wordsFound = 0;
 
+// main game logic:
 const newRound = () => {
     passwordPicker();
     passwordBlanks(password);
+
+    //listen for key hits from the user:
+    document.onkeyup = (event) => {
+
+        userInput = (event.key).toUpperCase();
+
+        //only run if they pressed an actual letter:
+        if (alphabet.indexOf(userInput) != (-1)) {
+            
+            userGuess = userInput;
+            console.log(`index:` + alphabet.indexOf(userInput));
+        }
+    }
 }
 
 // function to choose one password from the array per round:
@@ -45,4 +60,3 @@ const passwordBlanks = (word) => {
 
 //newRound is first called on page load:
 newRound();
-
