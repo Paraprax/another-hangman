@@ -38,7 +38,10 @@ const newRound = () => {
             
             //check if the letter is in the password:
             if (password.indexOf(userInput) != (-1)) {
-                console.log(`letter found at ${password.indexOf(userInput)}!`);
+                //replace the blank character at the appropriate index with the user input:
+                blanks[password.indexOf(userInput)] = userInput;
+                //rewrite the new partially-blank string to the screen:
+                document.getElementById('password-blanks').innerHTML = blanks;
             } else {
                 console.log('letter not found!');
             }
