@@ -1,12 +1,6 @@
-/*
+// Initial Vars: = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-5. Trigger a loss event if the user guesses eight wrong letters
-
-*/
-
-// initial vars:
-// const passwordArray = ['modem', 'matrix', 'wireframe', 'bandwidth', 'giraffe', 'octopus', 'martini', 'hexagon', 'xylophone', 'delta', 'ultramarine', 'zeitgeist', 'rook', 'krypton', 'xerox', 'megabyte', 'enterprise', 'nautilus', 'oppenheimer', 'caffeine', 'adrenaline', 'firewall', 'zeppelin', 'phreak', 'touchtone', 'jupiter', 'quartet', 'vespertine', 'zeroes', 'flux', 'dialup', 'quaver'];
-const passwordArray = ['matrix', 'hexagon', 'delta', 'krypton', 'phreak', 'jupiter', 'flux', 'dialup', 'quaver'];
+const passwordArray = ['matrix', 'hexagon', 'delta', 'krypton', 'phreak', 'jupiter', 'flux', 'dialup', 'quaver', 'atomic', 'squid', 'asterix', 'orbit', 'lemon', 'orange', 'salt', 'tequila', 'whiskey', 'neural', 'threads', 'gizmo', 'dice', 'castle', 'zeta', 'epsilon', 'saturn', 'pluto', 'omega'];
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 let password = "";
 let blanks = [];
@@ -14,6 +8,11 @@ let guessedLetters = [];
 let strikes = 0;
 let userInput = "";
 let wordsFound = 0;
+
+//  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+
+//Function Declarations, Definitions && Calls: ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 //function to reset all the stats and arrays unique to each round:
 const statReset = () => {
@@ -74,7 +73,7 @@ const newRound = () => {
 
 // function to choose one password from the array per round:
 const passwordPicker = () => {
-    password = passwordArray[Math.floor(Math.random() * 9)];
+    password = passwordArray[Math.floor(Math.random() * 28)];
     //convert to uppercase(so we don't have to remember to keep doing so manually for any future passwords added to the array):
     password = password.toUpperCase();
 }
@@ -136,3 +135,5 @@ const strikeCount = (strikeNumber) => {
 
 //newRound is first called on page load:
 newRound();
+
+//~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
