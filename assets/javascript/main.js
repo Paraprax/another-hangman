@@ -11,6 +11,7 @@ const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 let password = "";
 let blanks = [];
 let guessedLetters = [];
+let strikes = 0;
 let userInput = "";
 let wordsFound = 0;
 
@@ -33,7 +34,9 @@ const newRound = () => {
                 blanks[password.indexOf(userInput)] = userInput;
                 screenUpdater();
             } else {
+                //add the letter to the 'guessed' array and increase the # of strikes;
                 guessedLetters.push(userInput);
+                strikes++;
                 screenUpdater();
             }
             //check if whole password has been uncovered:
@@ -67,6 +70,34 @@ const passwordBlanks = (word) => {
         blanks.push('_');
     }
     document.getElementById('password-blanks').innerHTML = blanks;
+}
+
+//function to swap out the 'lock' tiles with 'skull' when wrong letters are guessed
+const strikeCount = (strikeNumber) => {
+    switch (strikeNumber) {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+        default:
+            break;
+    }
 }
 
 //newRound is first called on page load:
