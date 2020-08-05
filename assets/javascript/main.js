@@ -15,10 +15,19 @@ let strikes = 0;
 let userInput = "";
 let wordsFound = 0;
 
+
+const statReset = () => {
+    blanks = []; //clears the array of blanks for each round
+    guessedLetters = [];
+    strikes = 0;
+    passwordPicker(); //selects a new password
+    passwordBlanks(password); //fills the array with new password-length blanks
+}
+
 // main game logic:
 const newRound = () => {
-    passwordPicker();
-    passwordBlanks(password);
+    statReset();
+    screenUpdater();
 
     //listen for key hits from the user:
     document.onkeyup = (event) => {
@@ -43,13 +52,13 @@ const newRound = () => {
             //if whole password has been uncovered, alert WIN statement:
             if (blanks.indexOf('_') == -1) {
                 setTimeout(function() { alert('Access Granted')}, 100);
-                newRound();
+                setTimeout(function() { newRound()}, 200 );
             }
 
             //if nine strikes amassed, alert LOSS statement:
             if (strikes == 9) {
                 setTimeout(function() { alert('ACCESS DENIED');}, 100);
-                newRound();
+                setTimeout(function() { newRound()}, 200 );
             }
         }
     }
