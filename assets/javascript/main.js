@@ -40,9 +40,14 @@ const newRound = () => {
                 strikeCount(strikes);
                 screenUpdater();
             }
-            //check if whole password has been uncovered:
+            //if whole password has been uncovered, alert WIN statement:
             if (blanks.indexOf('_') == -1) {
-                setTimeout(function() {alert('Access Granted')}, 100);
+                setTimeout(function() { alert('Access Granted')}, 100);
+            }
+
+            //if nine strikes amassed, alert LOSS statement:
+            if (strikes == 9) {
+                setTimeout(function() { alert('ACCESS DENIED');}, 100);
             }
         }
     }
