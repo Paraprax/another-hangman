@@ -22,10 +22,18 @@ const statReset = () => {
     strikes = 0;
     passwordPicker(); //selects a new password
     passwordBlanks(password); //fills the array with new password-length blanks
+
+    //resets all icon tiles to locks(NOTE: requires a loop as getElementsByClassName returns a collection, not a single element like gEBId - PJ)
+    var tiles = document.getElementsByClassName('lock');
+    for (var i = 0; i < tiles.length; i++) {
+        tiles[i].innerHTML = ('<img src="./assets/images/lock-symbol.png" alt="lock" width="70px">');
+    };
 }
 
 // main game logic:
 const newRound = () => {
+
+    //reset stats and arrays and update the screen:
     statReset();
     screenUpdater();
 
