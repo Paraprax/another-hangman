@@ -43,11 +43,13 @@ const newRound = () => {
             //if whole password has been uncovered, alert WIN statement:
             if (blanks.indexOf('_') == -1) {
                 setTimeout(function() { alert('Access Granted')}, 100);
+                newRound();
             }
 
             //if nine strikes amassed, alert LOSS statement:
             if (strikes == 9) {
                 setTimeout(function() { alert('ACCESS DENIED');}, 100);
+                newRound();
             }
         }
     }
