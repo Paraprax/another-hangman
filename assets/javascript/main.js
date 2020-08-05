@@ -15,7 +15,7 @@ let strikes = 0;
 let userInput = "";
 let wordsFound = 0;
 
-
+//function to reset all the stats and arrays unique to each round:
 const statReset = () => {
     blanks = []; //clears the array of blanks for each round
     guessedLetters = [];
@@ -24,13 +24,13 @@ const statReset = () => {
     passwordBlanks(password); //fills the array with new password-length blanks
 
     //resets all icon tiles to locks(NOTE: requires a loop as getElementsByClassName returns a collection, not a single element like gEBId - PJ)
-    var tiles = document.getElementsByClassName('lock');
-    for (var i = 0; i < tiles.length; i++) {
-        tiles[i].innerHTML = ('<img src="./assets/images/lock-symbol.png" alt="lock" width="70px">');
+    var boxes = document.getElementsByClassName('lock');
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].innerHTML = ('<img src="./assets/images/lock-symbol.png" alt="lock" width="70px">');
     };
 }
 
-// main game logic:
+// function of main game logic:
 const newRound = () => {
 
     //reset stats and arrays and update the screen:
@@ -89,7 +89,7 @@ const screenUpdater = () => {
     document.getElementById('guessed-letters').innerHTML = guessedLetters;
 }
 
-//
+//function to generate a password-long array of blank spaces:
 const passwordBlanks = (word) => {
     for (var i = 0; i < word.length; i++) {
         blanks.push('_');
