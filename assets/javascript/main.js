@@ -37,6 +37,7 @@ const newRound = () => {
                 //add the letter to the 'guessed' array and increase the # of strikes;
                 guessedLetters.push(userInput);
                 strikes++;
+                strikeCount(strikes);
                 screenUpdater();
             }
             //check if whole password has been uncovered:
@@ -78,22 +79,31 @@ const strikeCount = (strikeNumber) => {
         case 0:
             break;
         case 1:
+            document.getElementById('lock-1').innerHTML = ('<img src="./assets/images/sk-1.png" alt="lock" width="70px"></img>');
             break;
         case 2:
+            document.getElementById('lock-2').innerHTML = ('<img src="./assets/images/sk-2.png" alt="lock" width="70px"></img>');
             break;
         case 3:
+            document.getElementById('lock-3').innerHTML = ('<img src="./assets/images/sk-3.png" alt="lock" width="70px"></img>');
             break;
         case 4:
+            document.getElementById('lock-4').innerHTML = ('<img src="./assets/images/sk-4.png" alt="lock" width="70px"></img>');
             break;
         case 5:
+            document.getElementById('lock-5').innerHTML = ('<img src="./assets/images/sk-5.png" alt="lock" width="70px"></img>');
             break;
         case 6:
+            document.getElementById('lock-6').innerHTML = ('<img src="./assets/images/sk-6.png" alt="lock" width="70px"></img>');
             break;
         case 7:
+            document.getElementById('lock-7').innerHTML = ('<img src="./assets/images/sk-7.png" alt="lock" width="70px"></img>');
             break;
         case 8:
+            document.getElementById('lock-8').innerHTML = ('<img src="./assets/images/sk-8.png" alt="lock" width="70px"></img>');
             break;
         case 9:
+            document.getElementById('lock-9').innerHTML = ('<img src="./assets/images/sk-9.png" alt="lock" width="70px"></img>');
             break;
         default:
             break;
